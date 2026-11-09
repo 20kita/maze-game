@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #12021A;
+  padding: 12px;
+}
+
+/* inside an iframe (e.g. the portfolio) the page around the game is see-through */
+body.embedded {
+  background: transparent;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  /* as big as possible, but never wider than 1200px and never taller than the screen */
+  width: min(100%, 1200px, calc((100vh - 24px) * 1200 / 850));
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  touch-action: none; /* dragging on the game moves the player instead of scrolling */
+}
+
+body.embedded canvas {
+  width: min(100%, calc(100vh * 1200 / 850));
+  box-shadow: none;
+}
